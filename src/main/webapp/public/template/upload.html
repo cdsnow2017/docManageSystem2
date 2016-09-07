@@ -1,0 +1,20 @@
+<div class="upload">
+    <form action="/doc/upload" method="post" enctype="multipart/form-data">
+        <h3 style="margin-top: 50px">文件上传页面</h3>
+        <div class="row">
+            <label class="col-md-2" for="file">请选择要上传的文件</label>
+            <input type="file" name="file"></input>
+            <label class="col-md-offset-2" for="type">资源类型</label>
+            <select name="resourceTypeId" id="type" style="min-width: 80px">
+                <option value="1" selected="selected">开发文档</option>
+                <option value="2">会议记录</option>
+                <option value="3">财务开单</option>
+            </select>
+        </div>
+        <label style="margin-top: 50px" for="content">描述</label>
+        <textarea class="form-control" id="content" rows="4" name="resourceDescribe"></textarea>
+        <div class="form-group">
+            <input class="btn btn-danger " type="submit" value="上传文件"></input>
+        </div>
+    </form>
+</div>

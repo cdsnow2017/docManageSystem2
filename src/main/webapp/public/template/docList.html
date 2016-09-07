@@ -1,0 +1,68 @@
+<div class="docList">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h3 class="page-header">文档列表</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="form-group" style="TEXT-ALIGN: center; margin-top: 30px">
+                <div class="table-responsive col-md-12 ">
+                    <table id="table_id" class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr class="info">
+                                <th>名称</th>
+                                <th>上传人</th>
+                                <th>类别</th>
+                                <th>部门</th>
+                                <th>上传日期</th>
+                                <th>查看详情</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <script type="text/javascript">
+                    $(document).ready(function() {
+                        $('#table_id').DataTable({
+                            ajax: {
+                                //指定数据源
+                                url: "./doc/findDocList"
+                            },
+                            //每页显示三条数据
+                            pageLength: 6,
+                            columns: [{
+                                "data": "docName"
+                            }, {
+                                "data": "userName"
+                            }, {
+                                "data": "resourceTypeDescribe"
+                            }, {
+                                "data": "sectionName"
+                            }, {
+                                "data": "time"
+                            }, {
+                                "data": "resourceId"
+                            }],
+                            "columnDefs": [{
+                                // "visible": false,
+                                //"targets": 0
+                            }, {
+                                "render": function(data, type, row, meta) {
+                                    //渲染 把数据源中的标题和url组成超链接
+
+                                    return '<a href="#/simpleDoc?resourceId=' + data + '">查看</a>';
+                                    /*  return '<a href="#/simpleDoc?resouceId=' + data + '" target="_blank"c' + row.title + '</a>'; */
+                                },
+
+                                "targets": -1
+                            }]
+
+                        });
+                    });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

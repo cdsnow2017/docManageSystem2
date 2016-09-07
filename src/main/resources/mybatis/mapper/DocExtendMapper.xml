@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.ynu.docmanagesystem.mapperExtend.DocExtendMapper">
+
+	<!-- <select id="verifyUser" resultType="int"> DECLARE @o_buyerid int exec 
+		@o_buyerid = [dbo].[signIn] #{0},#{1},#{2} select @o_buyerid </select> -->
+	<select id="findAllresouceList" resultType="DocList">
+
+		select r.resourceId,r.originalFileName as docName,u.uname as
+		userName,s.sectionDescribe as
+		sectionName,r.time,rt.resourceTypeDescribe
+		from resource
+		r,user
+		u,resourceType rt,section s
+		where r.userId = u.userId and
+		r.resourceTypeId = rt.resourceTypeId and
+		s.sectionId = u.sectionId
+		<if test="resouceType != null">
+			and r.resourceTypeId = #{resouceType}
+		</if>
+		<if test="sectionId != null">
+			and u.sectionId = #{sectionId}
+		</if>
+
+	</select>
+
+	<update id="updateViewCount">
+
+		update resource
+		set readNum = readNum+1
+		where
+		resourceId = #{0}
+
+	</update>
+
+
+	<select id="findDocDetailById" resultType="DocDetail">
+
+		select
+		r.resourceId,r.originalFileName as docName,u.uname as
+		userName,s.sectionDescribe as
+		sectionName,r.time,rt.resourceTypeDescribe,r.downloadNum,r.readNum,r.description
+		from resource
+		r,user u,resourceType rt,section s
+		where r.resourceId
+		=
+		#{0} and r.userId =
+		u.userId and
+		r.resourceTypeId = rt.resourceTypeId
+		and
+		s.sectionId =
+		u.sectionId
+
+	</select>
+
+	<select id="findSwfFileById" resultType="Object">
+		select swf
+		from resource
+		where resourceId = #{0}
+
+	</select>
+
+	<select id="findResourceTypeByResourceId" resultType="Integer">
+		select
+		resourceTypeId
+		from resource
+		where resource.resourceId = #{0}
+
+	</select>
+
+	<select id="findDocFileById" resultType="Object">
+		select contain
+		from resource
+		where resourceId = #{0}
+
+	</select>
+
+
+	<select id="findDocNameById" resultType="String">
+		select originalFileName
+		from resource
+		where resource.resourceId = #{0}
+	</select>
+
+</mapper>

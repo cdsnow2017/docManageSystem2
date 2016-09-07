@@ -1,0 +1,99 @@
+.SimpleUserIndex .dropdown {
+    margin-top: 10px;
+}
+
+.SimpleUserIndex .page-header {
+    margin-top: 100px;
+    margin-left: 500px;
+}
+
+.SimpleUserIndex .td {
+    height: 50px;
+    vertical-align: middle;
+}
+
+.companyDocList .dropdown {
+    margin-top: 10px;
+}
+
+.companyDocList .page-header {
+    margin-top: 100px;
+    margin-left: 500px;
+}
+
+.companyDocList .td {
+    height: 50px;
+    vertical-align: middle;
+}
+
+.panel .page-header {
+    margin-top: 100px;
+    margin-left: 500px;
+}
+
+.panel .text {
+    height: 1000px;
+    background-color: #8df9df;
+}
+
+.panel .panel-heading {
+    margin-top: 60px;
+}
+
+.personalCenter .pc1{
+    height: 650px;
+    background-color: #484891;
+    color: #ddddff;
+}
+
+.personalCenter .pc2{
+    
+}
+
+.personalCenter .row{
+    text-align: center;
+}
+.personalCenter .row2{
+    margin-top: 15px;
+    height:50px;
+    text-align: center;
+    /*margin-top: 20px;*/
+}
+.personalCenter .row2:hover{
+    display:inline-block;
+    text-align: center;
+    width:100%;
+    height:50px;
+    background-color:rgb(12,55,132);
+    color:#fff;
+    text-decoration: none;
+    top: 100px;
+    margin-top: 15px;
+}
+
+.personalCenter .raw{
+    border-radius:10px 10px 10px 10px;
+    box-shadow: 0 0 10px black;
+}
+
+.personalCenter .pic{
+height: 80px;margin-top: 20px;
+background-size:100%;background-repeat: no-repeat;
+}
+
+.personalCenter .label{
+border-radius:10px 10px 10px 10px;
+    box-shadow: 0 0 10px black;
+}
+.resManage .h_h3{
+    margin-left: 0px;
+    margin-top: 50px;
+}
+.history .h_h3{
+    margin-left: 0px;
+    margin-top: 50px;
+}
+.p_h3{
+    margin-left: 0px;
+    margin-top: 50px;
+}

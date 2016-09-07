@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>前端原型设计</title>
+    <link rel="stylesheet" href="./public/stylesheet/bootstrap.min.css">
+    <link href="./public/stylesheet/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="./public/stylesheet/W_index.css">
+    <link rel="stylesheet" href="public/stylesheet/ljh_teacher.css">
+    <link rel="stylesheet" href="./public/stylesheet/DBW_login.css">
+    <link rel="stylesheet" href="./public/stylesheet/style.css">
+    <link rel="stylesheet" href="./public/stylesheet/jquery.dataTables.min.css">
+    <!-- 自己写的css文件 -->
+</head>
+
+<body>
+    <div class="container main" style="background-color: #ECECFF">
+        <navbar> </navbar>
+        <div class="container">
+            <!-- <div ng-view>
+            </div> -->
+            <div class="personalCenter">
+                <h2 class="page-header "><span class="label label-default log2">应用中心</span></h2>
+                <div class="row col-md-12" ng-controller="UpLoadController">
+                    <div class="col-md-2 pc1">
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1 pic" style="background-image:url(public/images/111.png);">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1" style="margin-top: 10px;">
+                                欢迎使用！
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1" style="margin-top: 10px;" ng-click="docData2()">
+                                <button class="btn btn-warning" style="width: 100%;" type="button" onclick="location.href='#/upload'"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> 上传文件</button>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title">数据库系统设计：高雨轩组</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Tel:2587451</p>
+                                        <p>QQ:904977558</p>
+                                        <p>National Demonstration College Of Software ,Yun Nan University .</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h3 class="modal-title">常见问题解答：</h3>
+                                    </div>
+                                    <div class="modal-body" style="height: 270px;">
+                                        <button type="button" class="btn btn-info col-md-10 col-md-offset-1" ng-click="showAnswer1()">
+                                            <h4>1：我该怎样预览文件？</h4></button><br>
+                                            <div class="answer1 col-md-10 col-md-offset-1" ng-hide="answer1">答：您可以通过 -><strong>查看文档</strong>-><strong>查看详情</strong> 进行在线预览</div>
+                                        <button type="button" class="btn btn-info col-md-10 col-md-offset-1" ng-click="showAnswer2()" style="margin-top: 9px;">
+                                            <h4>2：我该怎样上传文件？</h4></button><br>
+                                            <div class="answer2 col-md-10 col-md-offset-1" ng-hide="answer2">答：您可以通过单击<strong>上传文档</strong>进行上传</div>
+                                        <button type="button" class="btn btn-info col-md-10 col-md-offset-1" ng-click="showAnswer3()" style="margin-top: 9px;">
+                                            <h4>3：我该怎样编辑文件相关介绍？</h4></button>
+                                            <div class="answer3 col-md-10 col-md-offset-1" ng-hide="answer3">答：您可以在上传文件时编辑，也可在上传后在<strong>我的文档</strong>中进行修改</div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row2" ng-hide="data.resManage">
+                            <div class="col-md-10 col-md-offset-1">
+                                <h4 class="btn" id="personalInfo" onclick="location.href='#/resManage'"><span class="glyphicon glyphicon-wrench" aria-hidden={{data.resManage}}></span> 资源管理</h4>
+                            </div>
+                        </div>
+                        <div class="row2" ng-hide="data.autManage">
+                            <div class="col-md-10 col-md-offset-1">
+                                <h4 class="btn" id="personalInfo" onclick="location.href='#/autManage'"><span class="glyphicon glyphicon-wrench" aria-hidden={{data.autManage}}></span> 权限管理</h4>
+                            </div>
+                        </div>
+                        <div class="row2" ng-hide="data.graph">
+                            <div class="col-md-10 col-md-offset-1">
+                                <h4 class="btn" id="personalInfo" onclick="location.href='#/chart'"><span class="glyphicon glyphicon-stats" aria-hidden={{data.graph}}></span> 统计报表</h4>
+                            </div>
+                        </div>
+                        <div class="row2" ng-hide="data.doc">
+                            <div class="col-md-10 col-md-offset-1">
+                                <h4 class="btn" id="personalInfo" onclick="location.href='#/docList'"><span class="glyphicon glyphicon-eye-open" aria-hidden={{data.doc}}></span> 查看文档</h4>
+                            </div>
+                        </div>
+                        <div class="row2">
+                            <div class="col-md-10 col-md-offset-1">
+                                <h4 class="btn" id="mydoc" onclick="location.href='#/myDoc'"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 我的文档</h4>
+                            </div>
+                        </div>
+                        <div class="row2">
+                            <div class="col-md-10 col-md-offset-1">
+                                <h4 class="btn" id="history" onclick="location.href='#/history'"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 历史记录</h4>
+                            </div>
+                        </div>
+                        <div class="row2">
+                            <div class="col-md-10 col-md-offset-1">
+                                <h4 class="btn" id="personalInfo" onclick="location.href='#/personalInfo'"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> 个人信息</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-10 pc2" id="pc2" style="border: 1px solid red;height: 650px">
+                        <div ng-view style="height: 650px;line-height:650px;overflow:auto;overflow-x:hidden;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <foot></foot> -->
+    <script src="./public/js/jquery.min.js"></script>
+    <script src="./public/js/bootstrap.min.js"></script>
+    <script src="./public/js/angular.js"></script>
+    <script src="./public/js/angular.route.min.js"></script>
+    <script src="./public/js/RH_index.js"></script>
+    <script src="./public/js/jquery.dataTables.min.js"></script>
+    <script src="./public/js/flexpaper_handlers.js"></script>
+    <script src="./public/js/flexpaper.js"></script>
+    <script src="./public/js/common.js"></script>
+    <script src="./public/js/echarts.min.js"></script>
+    <!-- 自己写的js文件 -->
+</body>
+
+</html>

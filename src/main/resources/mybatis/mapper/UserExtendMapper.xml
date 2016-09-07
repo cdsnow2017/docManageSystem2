@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.ynu.docmanagesystem.mapperExtend.UserExtendMapper">
+
+
+
+
+	<select id="findSectionByUserId" resultType="Section">
+		select section.*
+		from section,user
+		where user.userId = #{0} and
+		section.sectionId = user.sectionId
+
+	</select>
+
+
+
+	<select id="findShiroPermissionById" resultType="PermissionShiroString">
+		select
+		resourceTypeId,userAuthorityId
+		from section_userauthority_resourcetype
+		where sectionId = #{0}
+
+	</select>
+
+
+	<select id="selectAllUserId" resultType="Integer">
+		select userId
+		from user
+
+	</select>
+
+
+	<select id="selectOperationCountOneUser" resultType="Integer">
+		select count(*)
+		from user_resource_log
+		where userId = #{0} and operation = #{1}
+
+	</select>
+
+	<select id="findSectionReourceTypeAuthorizationList" resultType="SectionReourceTypeAuthorizationList">
+		select *
+        from section_userauthority_resourcetype sur,section s ,resourceType r,userAuthority u
+        where sur.resourceTypeId = r.resourceTypeId and sur.sectionId =
+        s.sectionId and u.userAuthorityId = sur.userAuthorityId
+	</select>
+
+
+
+
+
+</mapper>

@@ -1,0 +1,10 @@
+.newCol{
+	float:left;
+	font-size:16px;
+	cursor:pointer;
+	color:#000093;
+
+}
+nav li p{
+	line-height:65px;
+}
