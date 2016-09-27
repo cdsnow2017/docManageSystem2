@@ -16,13 +16,14 @@
 </head>
 
 <body>
-    <div class="container main" style="background-color: #ECECFF">
+    <div class="container main">
+    <!-- style="background-color: #ECECFF" -->
         <navbar> </navbar>
         <div class="container">
             <!-- <div ng-view>
             </div> -->
             <div class="personalCenter">
-                <h2 class="page-header "><span class="label label-default log2">应用中心</span></h2>
+                <h2 class="page-header "></h2>
                 <div class="row col-md-12" ng-controller="UpLoadController">
                     <div class="col-md-2 pc1">
                         <div class="row">
@@ -31,7 +32,12 @@
                         </div>
                         <div class="row">
                             <div class="col-md-10 col-md-offset-1" style="margin-top: 10px;">
-                                欢迎使用！
+                                欢迎，{{data.userName}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1" style="margin-top: 10px;">
+                                {{data.sectionName}}
                             </div>
                         </div>
                         <div class="row">
@@ -44,7 +50,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title">数据库系统设计：高雨轩组</h4>
+                                        <h4 class="modal-title">工程项目实训：高雨轩组</h4>
                                     </div>
                                     <div class="modal-body">
                                         <p>Tel:2587451</p>
@@ -117,7 +123,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-10 pc2" id="pc2" style="border: 1px solid red;height: 650px">
+                    <div class="col-md-10 pc2" id="pc2" style="height: 650px">
                         <div ng-view style="height: 650px;line-height:650px;overflow:auto;overflow-x:hidden;">
                         </div>
                     </div>

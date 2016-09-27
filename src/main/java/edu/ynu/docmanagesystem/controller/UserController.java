@@ -7,6 +7,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -49,6 +50,9 @@ public class UserController {
 			e.printStackTrace();
 			state.setState("-2");
 		}
+		Session session = subject.getSession();
+		session.setAttribute("username", userService.findUserById(user.getUserid()).getUname());
+		session.setAttribute("sectionname", userService.findSectionByUserId((user.getUserid())).getSectiondescribe());
 		return state;
 	}
 
@@ -81,9 +85,10 @@ public class UserController {
 
 	@RequestMapping("/deleteSectionReourceTypeAuthorization")
 	public String deleteSectionReourceTypeAuthorization(Integer sectionId, Integer resourceTypeId,
-	        Integer userAuthorityId, Boolean isCascade) {
+			Integer userAuthorityId, Boolean isCascade) {
 		try {
-			sectionService.deleteSectionResourceTypeAuthorization(sectionId, resourceTypeId, userAuthorityId, isCascade);
+			sectionService.deleteSectionResourceTypeAuthorization(sectionId, resourceTypeId, userAuthorityId,
+					isCascade);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -92,13 +97,23 @@ public class UserController {
 
 	@RequestMapping("/addSectionReourceTypeAuthorization")
 	public String addSectionReourceTypeAuthorization(Integer sectionId, Integer resourceTypeId, Integer userAuthorityId,
-	        Boolean isCascade) {
+			Boolean isCascade) {
 		try {
 			sectionService.addSectionResourceTypeAuthorization(sectionId, resourceTypeId, userAuthorityId, isCascade);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return "redirect:/index.html#/autManage";
+	}
+
+	@RequestMapping("/getUserInformation")
+	public @ResponseBody Map<Object, Object> getUserInformation() {
+		Subject subject = SecurityUtils.getSubject();
+		Session session = subject.getSession();
+		HashMap<Object, Object> hashMap = new HashMap<>();
+		hashMap.put("userName", session.getAttribute("username"));
+		hashMap.put("sectionName", session.getAttribute("sectionname"));
+		return hashMap;
 	}
 
 }

@@ -1,0 +1,45 @@
+<div class="autadd">
+	 <ul class="nav nav-pills nav-justified" role="tablist">
+        <li role="presentation"><a href="#/autManage">权限删除</a></li>
+        <li role="presentation"  class="active"><a href="#/autadd">权限添加</a></li>
+   </ul>
+   <div class="row">
+        <h3 class="h_h3" style="margin-top: 50px;">权限添加界面</h3>
+    </div>
+   <div class="row">
+        <div class="col-md-10 ">
+            <form action="./user/addSectionReourceTypeAuthorization" method="post" enctype="multipart/form-data" style="">
+        <div class="row" style="margin-top: 20px;">
+            <label class="" for="type" style="margin-left: 150px">部门</label>
+            <select name="sectionId" id="type" style="min-width: 80px">
+                <option value="1" selected="selected">开发部</option>
+                <option value="2">基础架构部</option>
+                <option value="3">应用研发部</option>
+                <option value="4">运营部</option>
+            </select>
+            <label class="" for="type" style="margin-left: 230px">资源类型</label>
+            <select name="resourceTypeId" id="type" style="min-width: 80px;">
+                <option value="1" selected="selected">开发文档</option>
+                <option value="2">会议记录</option>
+                <option value="3">财务开单</option>
+            </select>
+            
+        </div>
+        <div class="form-group" style="margin-top: 30px">
+            <label class="" for="type" style="margin-left: 125px">权限类型</label>
+            <select name="userAuthorityId" id="type" style="min-width: 80px">
+                <option value="1">查看文档</option>
+                <option value="2">下载文档</option>
+            </select>
+            <label class="" for="type" style="margin-left: 235px">是否级联</label>
+            <select name="isCascade" id="type" style="min-width: 80px;">
+                <option value="1">是</option>
+                <option value="0">否</option>
+            </select>
+        </div>
+        <div class="form-group" style="margin-left: 150px">
+            <input class="btn btn-danger " type="submit" value="提交"></input>
+        </div>
+    </form>
+    </div>
+</div>

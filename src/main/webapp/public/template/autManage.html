@@ -1,42 +1,12 @@
 <div class="autManage">
-           <div class="row">
-        <h3 class="h_h3">权限添加界面</h3>
-    </div>
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <form action="./user/addSectionReourceTypeAuthorization" method="post" enctype="multipart/form-data">
-        <div class="row">
-            <label class="" for="type">部门</label>
-            <select name="sectionId" id="type" style="min-width: 80px">
-                <option value="1" selected="selected">开发部</option>
-                <option value="2">基础架构部</option>
-                <option value="3">应用研发部</option>
-                <option value="4">运营部</option>
-            </select>
-            <label class="" for="type">资源类型</label>
-            <select name="resourceTypeId" id="type" style="min-width: 80px">
-                <option value="1" selected="selected">开发文档</option>
-                <option value="2">会议记录</option>
-                <option value="3">财务开单</option>
-            </select>
-            <label class="" for="type">权限类型</label>
-            <select name="userAuthorityId" id="type" style="min-width: 80px">
-                <option value="1">查看文档</option>
-                <option value="2">下载文档</option>
-            </select>
-            <label class="" for="type">是否级联</label>
-            <select name="isCascade" id="type" style="min-width: 80px">
-                <option value="1">是</option>
-                <option value="0">否</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <input class="btn btn-danger " type="submit" value="提交"></input>
-        </div>
-    </form>
-           <h3 class="h_h3">权限删除界面</h3>
+    <ul class="nav nav-pills nav-justified" role="tablist">
+        <li role="presentation" class="active"><a href="#/autManage">权限删除</a></li>
+        <li role="presentation"><a href="#/autadd">权限添加</a></li>
+   </ul>
+
+    <h3 class="h_h3" style="margin-top: 50px;margin-bottom: 20px">权限删除界面</h3>
             <div class="form-group">
-              <button class="btn btn-info" id="button">删除</button>
+              
                 <div class="table-responsive col-md-12 ">
                     <table id="table_id" class="table table-striped table-hover table-bordered">
                         <thead>
@@ -50,28 +20,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <!-- <tr>
-                                <th>文档编号</th>
-                                <th>文档名称</th>
-                                <th>上传人</th>
-                                <th>类别</th>
-                            </tr>
-                            <tr>
-                                <th>文档编号</th>
-                                <th>文档名称</th>
-                                <th>上传人</th>
-                                <th>类别</th>
-                            </tr>
-                            <tr>
-                                <th>文档编号</th>
-                                <th>文档名称</th>
-                                <th>上传人</th>
-                                <th>类别</th>
-                            </tr> -->
                         </tbody>
                     </table>
                 </div>
+                <button class="btn btn-info" id="button">删除</button>
             </div>
         </div>
-    </div>
 </div>

@@ -26,9 +26,9 @@ nav li {
   list-style: none;
 }
 nav li p {
-  font-size: 18px;
+  font-size: 21px;
   text-decoration: none;
-  color: #FF4082;
+  color: #FFF;
   padding: 0 30px;
 }
 nav li a {

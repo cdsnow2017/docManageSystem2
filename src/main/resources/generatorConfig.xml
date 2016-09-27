@@ -55,7 +55,7 @@
 		<table tableName="role_systemAuthority"></table>
 
 		<table tableName="section"></table>
-		<table tableName="section_userauthority_ resourcetype"></table>
+		<table tableName="section_userauthority_resourcetype"></table>
 		<table tableName="systemAuthority"></table>
 				<table tableName="userAuthority"></table>
 		<table tableName="user_role"></table>

@@ -3,8 +3,8 @@
 <mapper namespace="edu.ynu.docmanagesystem.mapperExtend.SectionExtendMapper">
 
 	<select id="findAllSubSectionsById" resultType="Section">
-		exec
-		findAllSubSectionsById @sectionId = #{0}
+		call
+		findAllSubSectionsById (#{0})
 	</select>
 
 	<select id="selectDocCountOneSection" resultType="Integer">
